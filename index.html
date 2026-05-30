@@ -1,883 +1,346 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="NeuDev — независимая студия разработки игр на движке Godot. Inside the Screen, LunaCode и другие проекты." />
-    <meta name="theme-color" content="#0b0b14" />
-    <title>NeuDev — Independent Game Studio</title>
-
-    <link rel="icon" type="image/svg+xml" href="assets/images/logo/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/responsive.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1000">
+<meta name="description" content="NeuDev - независимая студия разработки игр. Сайт студии.">
+<meta name="keywords" content="neudev, игры, godot, indie, разработка игр, inside the screen, lunacode">
+<title>:::  NeuDev Studio - Official Website  :::</title>
+<link rel="icon" type="image/svg+xml" href="assets/images/logo/favicon.svg">
+<style>
+body{
+  background:#000080 url('') ;
+  background-color:#1a1a4d;
+  color:#ffffff;
+  font-family:"Times New Roman", Times, serif;
+  font-size:15px;
+  margin:0;
+  padding:0;
+  text-align:center;
+}
+a{ color:#ffff00; }
+a:visited{ color:#ff99ff; }
+a:hover{ color:#ff0000; }
+table{ border-collapse:separate; }
+.wrap{
+  width:980px;
+  margin:8px auto;
+  background:#c0c0c0;
+  border:4px ridge #808080;
+  text-align:left;
+  color:#000000;
+}
+/* ---- header ---- */
+.topbar{
+  background:#000000;
+  border-bottom:3px solid #00ff00;
+  padding:6px;
+  text-align:center;
+}
+.sitetitle{
+  font-family:"Comic Sans MS", cursive;
+  font-size:42px;
+  font-weight:bold;
+  color:#00ff00;
+  text-shadow:3px 3px 0 #ff00ff;
+  letter-spacing:1px;
+}
+.sitetitle .b{ color:#00ffff; }
+.tagline{
+  color:#ffff00;
+  font-family:"Arial", sans-serif;
+  font-size:13px;
+}
+marquee{
+  background:#ffff00;
+  color:#ff0000;
+  font-family:"Arial",sans-serif;
+  font-weight:bold;
+  font-size:14px;
+  border-top:2px solid #000;
+  border-bottom:2px solid #000;
+  padding:3px 0;
+}
+/* ---- nav ---- */
+.navbar{
+  background:#000080;
+  border-bottom:2px solid #fff;
+  padding:5px;
+  text-align:center;
+  font-family:"Arial",sans-serif;
+  font-size:13px;
+  font-weight:bold;
+}
+.navbar a{ color:#ffffff; text-decoration:none; padding:0 4px; }
+.navbar a:hover{ color:#ffff00; text-decoration:underline; }
+/* ---- main two columns ---- */
+.maintable{ width:100%; }
+.maintable td{ vertical-align:top; padding:8px; }
+.colL{ width:300px; background:#e0e0e0; border:2px inset #808080; }
+.colR{ background:#d8d8e8; border:2px inset #808080; }
+.boxhead{
+  background:#000080;
+  color:#ffff00;
+  font-family:"Arial",sans-serif;
+  font-weight:bold;
+  font-size:14px;
+  padding:3px 6px;
+  border:2px outset #4040a0;
+  margin-bottom:5px;
+}
+.profile-pic{
+  display:block;
+  margin:6px auto;
+  border:3px ridge #000080;
+  background:#fff;
+  padding:2px;
+}
+.profile-name{
+  text-align:center;
+  font-family:"Comic Sans MS",cursive;
+  font-size:20px;
+  font-weight:bold;
+  color:#000080;
+}
+.profile-status{ text-align:center; font-size:12px; color:#008000; font-weight:bold; }
+.infotable{ width:100%; font-size:13px; }
+.infotable td{ padding:2px 4px; border-bottom:1px dotted #888; }
+.infotable .k{ font-weight:bold; color:#000080; width:90px; }
+.btn88{
+  display:block;
+  width:88%;
+  margin:5px auto;
+  text-align:center;
+  background:#c0c0c0;
+  border:3px outset #fff;
+  color:#000080;
+  font-family:"Arial",sans-serif;
+  font-weight:bold;
+  font-size:13px;
+  text-decoration:none;
+  padding:4px;
+}
+.btn88:active{ border-style:inset; }
+.btn88:visited{ color:#000080; }
+/* ---- project cards ---- */
+.proj{
+  background:#ffffff;
+  border:3px ridge #808080;
+  margin-bottom:10px;
+  padding:6px;
+}
+.proj img{ float:left; width:120px; height:auto; border:2px solid #000; margin:0 8px 4px 0; }
+.proj h3{ margin:0 0 4px 0; font-family:"Arial",sans-serif; font-size:16px; color:#000080; }
+.proj h3 .a{ color:#cc0000; }
+.proj p{ margin:3px 0; font-size:13px; }
+.tag{
+  display:inline-block;
+  font-family:"Arial",sans-serif;
+  font-size:10px;
+  font-weight:bold;
+  padding:1px 5px;
+  border:1px solid #000;
+  margin:2px 2px 2px 0;
+  background:#ffff99;
+  color:#000;
+}
+.tag.ok{ background:#00ff00; color:#000; }
+.tag.closed{ background:#ff4040; color:#fff; }
+.tag.wip{ background:#ffaa00; color:#000; }
+.clearfix{ clear:both; }
+.new{ color:#ff0000; font-weight:bold; font-family:"Arial"; }
+hr{ border:0; border-top:2px groove #808080; }
+/* ---- footer ---- */
+.footer{
+  background:#000000;
+  color:#cccccc;
+  text-align:center;
+  font-family:"Arial",sans-serif;
+  font-size:11px;
+  padding:10px;
+  border-top:3px solid #00ff00;
+}
+.footer a{ color:#00ffff; }
+.counter{
+  display:inline-block;
+  background:#000;
+  color:#00ff00;
+  font-family:"Courier New",monospace;
+  font-size:16px;
+  font-weight:bold;
+  letter-spacing:3px;
+  border:2px solid #00ff00;
+  padding:2px 6px;
+}
+.badge{
+  display:inline-block;
+  background:#fff;
+  color:#000;
+  border:1px solid #000;
+  font-family:"Arial";
+  font-size:9px;
+  padding:2px 4px;
+  margin:2px;
+}
+blink{ }
+.welcome{
+  background:#ffffcc;
+  border:2px dashed #ff0000;
+  color:#cc0000;
+  font-family:"Comic Sans MS",cursive;
+  font-size:14px;
+  text-align:center;
+  padding:6px;
+  margin:6px;
+}
+</style>
 </head>
 <body>
-    <div class="bg-stars" aria-hidden="true"></div>
-    <div class="bg-mesh" aria-hidden="true"></div>
-    <div class="bg-glow" aria-hidden="true"></div>
-    <div class="bg-grid" aria-hidden="true"></div>
-    <div class="bg-noise" aria-hidden="true"></div>
-    <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
 
-    <header class="navbar" id="navbar">
-        <div class="container nav-container">
-            <a href="#hero" class="logo" aria-label="NeuDev — на главную">
-                <img src="assets/images/logo/logo.svg" alt="" class="logo-mark" />
-                <span class="logo-text">Neu<span class="accent">Dev</span></span>
-            </a>
+<div class="wrap">
 
-            <nav class="nav" aria-label="Основная навигация">
-                <ul class="nav-list">
-                    <li><a href="#about">О студии</a></li>
-                    <li><a href="#games">Игры</a></li>
-                    <li><a href="#projects">Проекты</a></li>
-                    <li><a href="#tech">Технологии</a></li>
-                    <li><a href="#contact">Контакты</a></li>
-                </ul>
-            </nav>
+  <!-- ============ HEADER ============ -->
+  <div class="topbar">
+    <div class="sitetitle">Neu<span class="b">Dev</span> Studio</div>
+  </div>
 
-            <button class="nav-toggle" id="navToggle" aria-label="Открыть меню" aria-expanded="false">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
-    </header>
+  <marquee scrollamount="6">
+    >>> ДОБРО ПОЖАЛОВАТЬ НА ОФИЦИАЛЬНЫЙ САЙТ NEUDEV STUDIO !!!  &nbsp; &#9733; &nbsp;
+    НОВАЯ ИГРА: INSIDE THE SCREEN - УЖЕ ДОСТУПНА НА ITCH.IO !!! &nbsp; &#9733; &nbsp;
+    LUNACODE - НАШ AI-АССИСТЕНТ В ТЕРМИНАЛЕ !!! &nbsp; &#9733; &nbsp; ХОЧЕШЬ ДЕЛАТЬ ИГРЫ ВМЕСТЕ? ПИШИ В TELEGRAM &gt;&gt;&gt;
+  </marquee>
 
-    <main>
-        <section class="hero" id="hero">
-            <div class="hero-orbs" aria-hidden="true">
-                <span class="orb orb-1"></span>
-                <span class="orb orb-2"></span>
-                <span class="orb orb-3"></span>
-            </div>
+  <!-- ============ NAV ============ -->
 
-            <div class="container hero-inner">
-                <div class="hero-badge">
-                    <span class="dot"></span> Independent Game Studio · Solo Dev
-                </div>
-                <h1 class="hero-title">
-                    Мы&nbsp;— <span class="gradient-text">NeuDev</span><br/>
-                    создаём <span class="typing" data-words="игры,проекты,идеи,миры">игры</span>
-                </h1>
-                <p class="hero-subtitle">
-                    Маленькая независимая студия. Большие амбиции.<br/>
-                    Делаем игры и инструменты на движке <strong>Godot</strong>.
-                </p>
-                <div class="hero-cta">
-                    <a href="#games" class="btn btn-primary">
-                        <span>Наши игры</span>
-                        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    </a>
-                    <a href="#contact" class="btn btn-ghost">Связаться</a>
-                </div>
+  <div class="welcome">
+    Привет, посетитель! Этот сайт сделан одним человеком. <span class="new">[NEW!]</span>
+  </div>
 
-                <div class="hero-stats">
-                    <div class="stat">
-                        <div class="stat-num" data-target="1">0</div>
-                        <div class="stat-label">Игра выпущена</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-num" data-target="3">0</div>
-                        <div class="stat-label">Проекта</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-num" data-target="100" data-suffix="%">0</div>
-                        <div class="stat-label">Любви к делу</div>
-                    </div>
-                </div>
-            </div>
+  <!-- ============ MAIN TWO COLUMNS ============ -->
+  <table class="maintable" cellspacing="0" cellpadding="0">
+  <tr>
 
-            <div class="hero-scroll" aria-hidden="true">
-                <span></span>
-            </div>
-        </section>
+    <!-- ===== LEFT: PROFILE ===== -->
+    <td class="colL">
+      <a name="profile"></a>
+      <div class="boxhead">&#9658; НАШ ПРОФИЛЬ</div>
 
-        <div class="marquee" aria-hidden="true">
-            <div class="marquee-track">
-                <span>★ INDIE GAME STUDIO</span>
-                <span>★ SOLO DEV</span>
-                <span>★ POWERED BY GODOT 4.6</span>
-                <span>★ NEUDEV.STUDIO</span>
-                <span>★ INSIDE THE SCREEN</span>
-                <span>★ LUNACODE</span>
-                <span>★ JOIN US</span>
-                <span>★ INDIE GAME STUDIO</span>
-                <span>★ SOLO DEV</span>
-                <span>★ POWERED BY GODOT 4.6</span>
-                <span>★ NEUDEV.STUDIO</span>
-                <span>★ INSIDE THE SCREEN</span>
-                <span>★ LUNACODE</span>
-                <span>★ JOIN US</span>
-            </div>
-        </div>
+      <img class="profile-pic" src="assets/images/logo/logo.svg" width="120" height="120" alt="NeuDev logo">
+      <div class="profile-name">NeuDev</div>
+      <div class="profile-status">[ ONLINE ] Solo Developer</div>
 
-        <section class="section about" id="about">
-            <div class="container">
-                <header class="section-head">
-                    <span class="section-number" aria-hidden="true">01</span>
-                    <span class="section-kicker">// о&nbsp;нас</span>
-                    <h2 class="section-title">Кто такие <span class="accent">NeuDev</span></h2>
-                </header>
+      <hr>
 
-                <div class="about-grid">
-                    <div class="about-text">
-                        <p>
-                            <strong>NeuDev</strong> — независимая студия разработки игр.
-                            Сейчас всё, что вы видите, — результат работы
-                            <strong>одного человека</strong>:
-                            <a href="https://t.me/neuroffc" target="_blank" rel="noopener" class="link-accent">@neuroffc</a>.
-                        </p>
-                        <p>
-                            Маленький состав — это не приговор, а свобода.
-                            Каждое решение, каждая строчка кода и&nbsp;каждый пиксель
-                            проходят через одни руки. Игры и&nbsp;проекты выходят такими,
-                            какими были задуманы, без компромиссов.
-                        </p>
-                        <p>
-                            Помимо игр студия пробует другие направления.
-                            Что-то развивается, что-то закрывается —
-                            и это нормально. Опыт остаётся всегда.
-                        </p>
-                    </div>
+      <table class="infotable" cellspacing="0">
+        <tr><td class="k">Студия:</td><td>NeuDev</td></tr>
+        <tr><td class="k">Тип:</td><td>Indie Game Studio</td></tr>
+        <tr><td class="k">Состав:</td><td>1 человек</td></tr>
+        <tr><td class="k">Движок:</td><td>Godot 4.6</td></tr>
+        <tr><td class="k">Языки:</td><td>GDScript, TypeScript, Python, HTML, CSS, JS, Java, Go, C++</td></tr>
+        <tr><td class="k">Разраб:</td><td><a href="https://t.me/neuroffc" target="_blank">@neuroffc</a></td></tr>
+        <tr><td class="k">Игр:</td><td>1 выпущена</td></tr>
+        <tr><td class="k">Проектов:</td><td>3</td></tr>
+      </table>
 
-                    <aside class="join-card glass reveal" aria-labelledby="joinTitle">
-                        <div class="join-card-glow" aria-hidden="true"></div>
-                        <span class="join-eyebrow">// open call</span>
-                        <h3 id="joinTitle" class="join-title">
-                            Хочешь делать игры&nbsp;<span class="gradient-text">вместе</span>?
-                        </h3>
-                        <p class="join-desc">
-                            Студия всегда открыта тем, кто горит играми и&nbsp;хочет
-                            подключиться к&nbsp;разработке. Программист, художник,
-                            музыкант, геймдизайнер или просто человек с идеей —
-                            пиши, разберёмся.
-                        </p>
-                        <a href="https://t.me/neuroffc" class="btn btn-primary btn-sm" target="_blank" rel="noopener">
-                            Присоединиться
-                            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
-                                <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 5l7 7-7 7"/>
-                            </svg>
-                        </a>
-                    </aside>
-                </div>
-            </div>
-        </section>
+      <hr>
 
-        <section class="section games" id="games">
-            <div class="container">
-                <header class="section-head">
-                    <span class="section-number" aria-hidden="true">02</span>
-                    <span class="section-kicker">// наши&nbsp;игры</span>
-                    <h2 class="section-title">Игры, которые мы <span class="gradient-text">сделали</span></h2>
-                    <p class="section-sub">Сейчас в каталоге 1 игра. Дальше — больше.</p>
-                </header>
+      <p style="font-size:13px;">
+        <b>NeuDev</b> - независимая студия разработки игр.
+        Всё, что вы видите, сделано <b>одним человеком</b>.
+        Маленький состав - это не приговор, а свобода:
+        каждая строчка кода и каждый пиксель проходят через одни руки.
+      </p>
+      <p style="font-size:13px;">
+        Помимо игр мы пробуем другие направления.
+        Что-то развивается, что-то закрывается - и это нормально.
+      </p>
 
-                <div class="cards games-grid">
-                    <article class="card game-card tilt reveal">
-                        <div class="card-corners" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-                        <div class="card-media">
-                            <img src="assets/images/games/game-1.png"
-                                 alt="Постер игры Inside the Screen"
-                                 loading="lazy"
-                                 onerror="this.onerror=null;this.src='assets/images/games/inside-the-screen.svg';" />
-                            <div class="card-tag">Released</div>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">Inside the&nbsp;<span class="accent">Screen</span></h3>
-                            <p class="card-desc">
-                                3D-хоррор от первого лица о том, что происходит
-                                по&nbsp;ту сторону экрана. Атмосфера, звуки и&nbsp;тишина,
-                                в&nbsp;которой что-то всегда не&nbsp;так.
-                            </p>
-                            <div class="card-meta">
-                                <span class="chip">Godot&nbsp;4.6</span>
-                                <span class="chip">Horror</span>
-                                <span class="chip">First-person</span>
-                            </div>
-                            <div class="card-actions">
-                                <a href="https://neudevstudio.itch.io/inside-the-screen"
-                                   class="btn btn-primary btn-sm"
-                                   target="_blank" rel="noopener">
-                                    Играть на itch.io
-                                    <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
-                                        <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M9 7h8v8"/>
-                                    </svg>
-                                </a>
-                                <button class="btn btn-ghost btn-sm" data-modal-open="modal-its">
-                                    Подробнее
-                                </button>
-                            </div>
-                        </div>
-                    </article>
+      <hr>
 
-                    <article class="card game-card placeholder tilt reveal">
-                        <div class="card-corners" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-                        <div class="card-media empty">
-                            <div class="empty-inner">
-                                <svg viewBox="0 0 24 24" width="48" height="48" aria-hidden="true">
-                                    <path fill="none" stroke="currentColor" stroke-width="1.5"
-                                          stroke-linecap="round" stroke-linejoin="round"
-                                          d="M12 5v14M5 12h14"/>
-                                </svg>
-                                <span>Скоро новая игра</span>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">In&nbsp;Development</h3>
-                            <p class="card-desc">
-                                Здесь появится следующий проект.
-                                Следите за обновлениями в Telegram.
-                            </p>
-                            <div class="card-meta">
-                                <span class="chip">WIP</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
+      <div class="boxhead">&#9658; СВЯЗАТЬСЯ</div>
+      <a class="btn88" href="https://t.me/neuroffc" target="_blank">Telegram: @neuroffc</a>
+      <a class="btn88" href="https://neudevstudio.itch.io" target="_blank">itch.io профиль</a>
+      <a class="btn88" href="https://t.me/neuroffc" target="_blank">Присоединиться к студии!</a>
+    </td>
 
-        <section class="section projects" id="projects">
-            <div class="container">
-                <header class="section-head">
-                    <span class="section-number" aria-hidden="true">03</span>
-                    <span class="section-kicker">// проекты</span>
-                    <h2 class="section-title">Другие <span class="accent">проекты</span></h2>
-                    <p class="section-sub">Помимо игр мы пробуем себя в других направлениях.</p>
-                </header>
+    <!-- ===== RIGHT: PROJECTS ===== -->
+    <td class="colR">
+      <a name="games"></a>
+      <div class="boxhead">&#9658; НАШИ ИГРЫ</div>
 
-                <div class="cards projects-grid">
-                    <article class="card project-card tilt reveal">
-                        <div class="card-corners" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-                        <div class="card-media">
-                            <img src="assets/images/projects/lunacode.png"
-                                 alt="Скриншот LunaCode"
-                                 loading="lazy" />
-                            <div class="card-tag tag-active">
-                                <span class="status-dot online"></span> Работает
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">
-                                Luna<span class="accent">Code</span>
-                            </h3>
-                            <p class="card-desc">
-                                AI-ассистент-кодер, живущий в&nbsp;терминале.
-                                Читает код, пишет код, запускает тесты, ищет по репозиторию —
-                                вызывает столько инструментов, сколько нужно для ответа.
-                            </p>
+      <div class="proj">
+        <img src="assets/images/games/game-1.png" alt="Inside the Screen"
+             onerror="this.onerror=null;this.src='assets/images/games/inside-the-screen.svg';">
+        <h3>Inside the <span class="a">Screen</span> <span class="tag ok">RELEASED</span></h3>
+        <p>3D-хоррор от первого лица о том, что происходит по ту сторону экрана.
+           Атмосфера, звук и тишина, в которой что-то всегда не так.</p>
+        <p><a href="https://neudevstudio.itch.io/inside-the-screen" target="_blank">&#9658; ИГРАТЬ</a></p>
+        <div class="clearfix"></div>
+      </div>
 
-                            <div class="terminal-hint" role="note" aria-label="Команда запуска LunaCode">
-                                <div class="terminal-bar">
-                                    <span class="td td-r"></span>
-                                    <span class="td td-y"></span>
-                                    <span class="td td-g"></span>
-                                    <span class="terminal-title">~ запуск</span>
-                                </div>
-                                <div class="terminal-body">
-                                    <span class="prompt">$</span>
-                                    <code class="terminal-cmd">lunacode</code>
-                                    <span class="caret" aria-hidden="true"></span>
-                                </div>
-                            </div>
+      <div class="proj">
+        <img src="assets/images/games/space-clicker.png" alt="Space Clicker">
+        <h3>Space <span class="a">Clicker</span> <span class="tag ok">RELEASED</span></h3>
+        <p>Кликер про космос: кликай по планете, зарабатывай энергию
+           и прокачивайся! Чем больше кликаешь - тем сильнее становишься.</p>
+        <p><a href="https://neudevstudio.itch.io/space-clicker" target="_blank">&#9658; ИГРАТЬ</a></p>
+        <div class="clearfix"></div>
+      </div>
 
-                            <div class="card-meta">
-                                <span class="chip">Active</span>
-                                <span class="chip">CLI</span>
-                                <span class="chip">TypeScript</span>
-                            </div>
-                            <div class="card-actions">
-                                <a href="https://drive.google.com/file/d/1SlSBpI25fLqrJbDku3bLp7aeNjHgSFMP/view?usp=sharing"
-                                   class="btn btn-primary btn-sm"
-                                   target="_blank" rel="noopener">
-                                    Открыть проект
-                                    <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
-                                        <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M9 7h8v8"/>
-                                    </svg>
-                                </a>
-                                <button class="btn btn-ghost btn-sm" data-modal-open="modal-lunacode">
-                                    Подробнее
-                                </button>
-                            </div>
-                        </div>
-                    </article>
+      <a name="projects"></a>
+      <div class="boxhead">&#9658; ДРУГИЕ ПРОЕКТЫ</div>
 
-                    <article class="card project-card closed tilt reveal">
-                        <div class="card-corners" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-                        <div class="card-media">
-                            <img src="assets/images/projects/sigmaai.png"
-                                 alt="Скриншот SigmaAI"
-                                 loading="lazy" />
-                            <div class="card-tag tag-closed">
-                                <span class="status-dot offline"></span> Закрыт
-                            </div>
-                            <div class="closed-overlay" aria-hidden="true">
-                                <span>CLOSED</span>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">
-                                Sigma<span class="accent">AI</span> Desktop
-                            </h3>
-                            <p class="card-desc">
-                                Десктопное приложение для работы с&nbsp;ИИ:
-                                безлимитные диалоги, кастомные правила, vibe-coding
-                                и&nbsp;аккуратный UX. Сейчас не&nbsp;поддерживается.
-                            </p>
-                            <div class="card-meta">
-                                <span class="chip chip-muted">Archived</span>
-                                <span class="chip chip-muted">Discontinued</span>
-                            </div>
-                            <div class="card-actions">
-                                <button class="btn btn-ghost btn-sm" data-modal-open="modal-sigma">
-                                    Подробнее
-                                </button>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
+      <div class="proj">
+        <img src="assets/images/projects/lunacode.png" alt="LunaCode">
+        <h3>Luna<span class="a">Code</span></h3>
+        <p>AI-ассистент-кодер, живущий прямо в терминале.
+           Читает код, пишет код, запускает тесты, ищет по репозиторию.
+           Запуск одной командой: <code>lunacode</code></p>
+        <p><a href="https://drive.google.com/file/d/1SlSBpI25fLqrJbDku3bLp7aeNjHgSFMP/view?usp=drive_link" target="_blank">&#9658; ОТКРЫТЬ ПРОЕКТ</a></p>
+        <div class="clearfix"></div>
+      </div>
 
-        <section class="section tech" id="tech">
-            <div class="container">
-                <header class="section-head">
-                    <span class="section-number" aria-hidden="true">04</span>
-                    <span class="section-kicker">// технологии</span>
-                    <h2 class="section-title">На чём мы <span class="gradient-text">делаем</span></h2>
-                </header>
+      <div class="proj">
+        <img src="assets/images/projects/neuro-launcher.png" alt="Neuro Launcher">
+        <h3>Neuro <span class="a">Launcher</span></h3>
+        <p>Современный лаунчер для Minecraft: быстрый запуск,
+           удобный интерфейс и управление версиями.</p>
+        <p><a href="https://drive.google.com/file/d/1AYbirbvtl90-gVsBihTq1ivJN1QKkpXB/view?usp=sharing" target="_blank">&#9658; ОТКРЫТЬ ПРОЕКТ</a></p>
+        <div class="clearfix"></div>
+      </div>
 
-                <div class="tech-card glass reveal">
-                    <div class="tech-icon">
-                        <svg viewBox="0 0 64 64" width="72" height="72" aria-hidden="true">
-                            <defs>
-                                <linearGradient id="gd" x1="0" y1="0" x2="1" y2="1">
-                                    <stop offset="0%" stop-color="#4aa3ff"/>
-                                    <stop offset="100%" stop-color="#8a5cff"/>
-                                </linearGradient>
-                            </defs>
-                            <path fill="url(#gd)"
-                                  d="M32 6c-9 0-16 5-19 12-2 5-2 11 0 17 1 3 4 6 7 7v8c0 2 2 4 4 4h2v-6h12v6h2c2 0 4-2 4-4v-8c3-1 6-4 7-7 2-6 2-12 0-17-3-7-10-12-19-12zm-8 18a4 4 0 1 1 0 8 4 4 0 0 1 0-8zm16 0a4 4 0 1 1 0 8 4 4 0 0 1 0-8z"/>
-                            <circle cx="24" cy="28" r="1.5" fill="#0b0b14"/>
-                            <circle cx="40" cy="28" r="1.5" fill="#0b0b14"/>
-                        </svg>
-                    </div>
-                    <div class="tech-text">
-                        <h3>Godot Engine</h3>
-                        <p>
-                            Все наши игры сделаны на
-                            <a href="https://godotengine.org/" target="_blank" rel="noopener">Godot 4.6</a>
-                            — открытом, лёгком и&nbsp;дружелюбном движке.
-                            Он позволяет нам быстро прототипировать идеи
-                            и&nbsp;сохранять полный контроль над кодом.
-                        </p>
-                        <div class="tech-tags">
-                            <span class="chip">GDScript</span>
-                            <span class="chip">Forward+</span>
-                            <span class="chip">Open&nbsp;Source</span>
-                            <span class="chip">2D&nbsp;/&nbsp;3D</span>
-                            <span class="chip">Cross-platform</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+      <div class="proj">
+        <img src="assets/images/projects/sigmaai.png" alt="SigmaAI">
+        <h3>Sigma<span class="a">AI</span> Desktop <span class="tag closed">ЗАКРЫТ</span></h3>
+        <p>Десктопное приложение для работы с ИИ: безлимитные диалоги,
+           кастомные правила, vibe-coding и аккуратный UX.
+           Сейчас не поддерживается - на смену пришёл LunaCode.</p>
+        <div class="clearfix"></div>
+      </div>
 
-        <section class="section contact" id="contact">
-            <div class="container">
-                <header class="section-head center">
-                    <span class="section-number" aria-hidden="true">05</span>
-                    <span class="section-kicker">// контакты</span>
-                    <h2 class="section-title">Связаться с&nbsp;<span class="gradient-text">нами</span></h2>
-                    <p class="section-sub">Пишите по любым вопросам — сотрудничество, идеи, фидбек.</p>
-                </header>
+      <div class="boxhead">&#9658; ТЕХНОЛОГИИ</div>
+      <div class="proj">
+        <p style="font-size:13px;">
+          Все наши игры сделаны на
+          <a href="https://godotengine.org/" target="_blank">Godot 4.6</a> -
+          открытом, лёгком и дружелюбном движке.</p>
+        <div class="clearfix"></div>
+      </div>
+    </td>
 
-                <div class="contact-grid">
-                    <a href="https://t.me/neuroffc" class="contact-card glass" target="_blank" rel="noopener">
-                        <div class="contact-icon tg">
-                            <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
-                                <path fill="currentColor" d="M9.04 15.32 8.9 19.5c.43 0 .62-.18.84-.4l2-1.92 4.16 3.04c.76.42 1.31.2 1.51-.7l2.74-12.84c.27-1.18-.43-1.65-1.18-1.37L3.3 9.74c-1.16.45-1.14 1.1-.2 1.4l4.34 1.36 10.07-6.34c.47-.3.9-.13.55.18z"/>
-                            </svg>
-                        </div>
-                        <div class="contact-info">
-                            <span class="contact-label">Telegram</span>
-                            <span class="contact-value">@neuroffc</span>
-                        </div>
-                        <span class="contact-arrow" aria-hidden="true">→</span>
-                    </a>
+  </tr>
+  </table>
 
-                    <a href="https://neudevstudio.itch.io" class="contact-card glass" target="_blank" rel="noopener" id="itchLink">
-                        <div class="contact-icon itch">
-                            <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
-                                <path fill="currentColor" d="M3 5.5 5.2 3h13.6L21 5.5v2.2c0 1-.7 1.8-1.7 1.8-1 0-1.7-.7-1.7-1.7 0 1-.7 1.7-1.7 1.7-1 0-1.7-.7-1.7-1.7 0 1-.7 1.7-1.7 1.7H12c-1 0-1.7-.7-1.7-1.7 0 1-.7 1.7-1.7 1.7-1 0-1.7-.7-1.7-1.7 0 1-.7 1.7-1.7 1.7C3.7 9.5 3 8.7 3 7.7V5.5zm1.5 5.4c.6.4 1.3.6 2 .6 1 0 2-.5 2.5-1.2.6.7 1.5 1.2 2.5 1.2s2-.5 2.5-1.2c.6.7 1.5 1.2 2.5 1.2s2-.5 2.5-1.2c.5.7 1.5 1.2 2.5 1.2.7 0 1.4-.2 2-.6V18c0 1.7-1.3 3-3 3H7.5C5.8 21 4.5 19.7 4.5 18v-7.1zM10 13c-.8 0-1.5.5-1.7 1.3l-.3 1.4c-.2.9.5 1.8 1.5 1.8h5c1 0 1.7-.9 1.5-1.8l-.3-1.4A1.8 1.8 0 0 0 14 13h-4z"/>
-                            </svg>
-                        </div>
-                        <div class="contact-info">
-                            <span class="contact-label">itch.io</span>
-                            <span class="contact-value">neudevstudio.itch.io</span>
-                        </div>
-                        <span class="contact-arrow" aria-hidden="true">→</span>
-                    </a>
-                </div>
-            </div>
-        </section>
+  <!-- ============ FOOTER ============ -->
+  <div class="footer">
+    <p>
+      <a href="https://t.me/neuroffc" target="_blank">Telegram</a> &nbsp;|&nbsp;
+      <a href="https://neudevstudio.itch.io" target="_blank">itch.io</a> &nbsp;|&nbsp;
+      <a href="https://godotengine.org/" target="_blank">Godot</a>
+    </p>
+  </div>
 
-        <div id="modalsRoot">
+</div>
 
-        <div class="modal" id="modal-its" role="dialog" aria-labelledby="modal-its-title" aria-modal="true" hidden>
-            <div class="modal-backdrop" data-modal-close></div>
-            <div class="modal-window glass" role="document">
-                <header class="modal-titlebar">
-                    <div class="modal-traffic">
-                        <button class="tdot tdot-r" data-modal-close aria-label="Закрыть"></button>
-                        <span class="tdot tdot-y"></span>
-                        <span class="tdot tdot-g"></span>
-                    </div>
-                    <h2 class="modal-title" id="modal-its-title">
-                        <span class="modal-crumb">neudev</span>
-                        <span class="modal-sep">/</span>
-                        <span class="modal-crumb">games</span>
-                        <span class="modal-sep">/</span>
-                        <span class="modal-crumb active">inside-the-screen.md</span>
-                    </h2>
-                    <button class="modal-close" data-modal-close aria-label="Закрыть">×</button>
-                </header>
-
-                <nav class="modal-tabs" role="tablist">
-                    <button class="modal-tab is-active" data-tab="overview" role="tab">Overview</button>
-                    <button class="modal-tab" data-tab="features" role="tab">Что внутри</button>
-                    <button class="modal-tab" data-tab="tech" role="tab">Технологии</button>
-                    <button class="modal-tab" data-tab="links" role="tab">Ссылки</button>
-                </nav>
-
-                <div class="modal-body">
-                    <section class="modal-pane is-active" data-pane="overview">
-                        <div class="modal-hero">
-                            <img src="assets/images/games/game-1.png"
-                                 alt="" loading="lazy"
-                                 onerror="this.onerror=null;this.src='assets/images/games/inside-the-screen.svg';" />
-                            <div class="modal-hero-fade"></div>
-                            <h3 class="modal-hero-title">Inside the&nbsp;<span class="accent">Screen</span></h3>
-                        </div>
-                        <p>
-                            <strong>Inside the Screen</strong> — наш дебютный 3D-хоррор от первого лица.
-                            Игрок оказывается в&nbsp;маленькой комнате с&nbsp;компьютером,
-                            и&nbsp;по&nbsp;ту сторону монитора что-то начинает идти не&nbsp;так.
-                        </p>
-                        <p>
-                            Игра построена на&nbsp;атмосфере и&nbsp;звуковом дизайне:
-                            глитчащие экраны, шёпоты, дыхание вентиляции, удалённые шаги
-                            и&nbsp;тишина, которая страшнее звуков. Минимум скримеров —
-                            максимум присутствия.
-                        </p>
-                        <ul class="modal-stats">
-                            <li><span class="ms-k">Жанр</span><span class="ms-v">Horror, First-Person</span></li>
-                            <li><span class="ms-k">Платформа</span><span class="ms-v">Windows · itch.io</span></li>
-                            <li><span class="ms-k">Длительность</span><span class="ms-v">Short experience</span></li>
-                            <li><span class="ms-k">Статус</span><span class="ms-v ok">Released</span></li>
-                        </ul>
-                    </section>
-
-                    <section class="modal-pane" data-pane="features">
-                        <h4 class="modal-h">Особенности</h4>
-                        <ul class="modal-list">
-                            <li>3D-сцена комнаты, мебель и&nbsp;офисная утварь с&nbsp;PBR-текстурами</li>
-                            <li>Полный звуковой ландшафт: ambient, мониторы, дыхание, шёпоты, удары</li>
-                            <li>Интерактивный компьютер с&nbsp;собственным UI прямо в&nbsp;3D-сцене</li>
-                            <li>Атмосферное освещение, глитч-эффекты и&nbsp;скрипты состояния</li>
-                            <li>Управление: <code>WASD</code> — движение, <code>E</code> — взаимодействие, <code>F</code> — осмотреться, <code>ESC</code> — пауза</li>
-                        </ul>
-                        <h4 class="modal-h">Что хочется передать</h4>
-                        <p>
-                            Не&nbsp;«пугать», а&nbsp;поселить лёгкое неудобство:
-                            ты сидишь перед монитором, и&nbsp;вроде всё нормально,
-                            но&nbsp;что-то рядом дышит. Финал и&nbsp;разгадка —
-                            оставлены на&nbsp;игрока.
-                        </p>
-                    </section>
-
-                    <section class="modal-pane" data-pane="tech">
-                        <h4 class="modal-h">Стек</h4>
-                        <ul class="modal-list">
-                            <li><strong>Godot 4.6</strong> · Forward+ rendering</li>
-                            <li><strong>Jolt Physics</strong> для 3D-физики</li>
-                            <li><strong>Direct3D&nbsp;12</strong> на&nbsp;Windows</li>
-                            <li>GDScript, кастомные шейдеры (<code>menu_bg.gdshader</code>)</li>
-                            <li>MSAA 3D · собственный <code>MeshCache</code> для оптимизации сцен</li>
-                        </ul>
-                        <h4 class="modal-h">Сцены</h4>
-                        <div class="modal-chips">
-                            <span class="chip">Loading</span>
-                            <span class="chip">Menu</span>
-                            <span class="chip">Main</span>
-                            <span class="chip">ComputerUI</span>
-                            <span class="chip">Settings</span>
-                            <span class="chip">Credits</span>
-                        </div>
-                    </section>
-
-                    <section class="modal-pane" data-pane="links">
-                        <a class="modal-link" href="https://neudevstudio.itch.io/inside-the-screen" target="_blank" rel="noopener">
-                            <span class="ml-icon">↗</span>
-                            <span class="ml-text">
-                                <span class="ml-title">Страница игры на&nbsp;itch.io</span>
-                                <span class="ml-sub">neudevstudio.itch.io/inside-the-screen</span>
-                            </span>
-                        </a>
-                        <a class="modal-link" href="https://neudevstudio.itch.io" target="_blank" rel="noopener">
-                            <span class="ml-icon">↗</span>
-                            <span class="ml-text">
-                                <span class="ml-title">Профиль студии на&nbsp;itch.io</span>
-                                <span class="ml-sub">neudevstudio.itch.io</span>
-                            </span>
-                        </a>
-                        <a class="modal-link" href="https://t.me/neuroffc" target="_blank" rel="noopener">
-                            <span class="ml-icon">↗</span>
-                            <span class="ml-text">
-                                <span class="ml-title">Связаться с&nbsp;разработчиком</span>
-                                <span class="ml-sub">Telegram · @neuroffc</span>
-                            </span>
-                        </a>
-                    </section>
-                </div>
-
-                <footer class="modal-statusbar">
-                    <span><span class="status-dot online"></span> released</span>
-                    <span class="msb-mid">neudev studio · 2026</span>
-                    <span class="msb-end">esc · close</span>
-                </footer>
-            </div>
-        </div>
-
-        <div class="modal" id="modal-lunacode" role="dialog" aria-labelledby="modal-lunacode-title" aria-modal="true" hidden>
-            <div class="modal-backdrop" data-modal-close></div>
-            <div class="modal-window glass" role="document">
-                <header class="modal-titlebar">
-                    <div class="modal-traffic">
-                        <button class="tdot tdot-r" data-modal-close aria-label="Закрыть"></button>
-                        <span class="tdot tdot-y"></span>
-                        <span class="tdot tdot-g"></span>
-                    </div>
-                    <h2 class="modal-title" id="modal-lunacode-title">
-                        <span class="modal-crumb">neudev</span>
-                        <span class="modal-sep">/</span>
-                        <span class="modal-crumb">projects</span>
-                        <span class="modal-sep">/</span>
-                        <span class="modal-crumb active">lunacode.md</span>
-                    </h2>
-                    <button class="modal-close" data-modal-close aria-label="Закрыть">×</button>
-                </header>
-
-                <nav class="modal-tabs" role="tablist">
-                    <button class="modal-tab is-active" data-tab="overview" role="tab">Overview</button>
-                    <button class="modal-tab" data-tab="features" role="tab">Возможности</button>
-                    <button class="modal-tab" data-tab="tech" role="tab">Технологии</button>
-                    <button class="modal-tab" data-tab="install" role="tab">Установка</button>
-                    <button class="modal-tab" data-tab="links" role="tab">Ссылки</button>
-                </nav>
-
-                <div class="modal-body">
-                    <section class="modal-pane is-active" data-pane="overview">
-                        <div class="modal-hero">
-                            <img src="assets/images/projects/lunacode.png" alt="" loading="lazy" />
-                            <div class="modal-hero-fade"></div>
-                            <h3 class="modal-hero-title">Luna<span class="accent">Code</span></h3>
-                        </div>
-                        <p>
-                            <strong>LunaCode</strong> — это AI-ассистент-кодер,
-                            который живёт прямо в&nbsp;вашем терминале. Попросите его
-                            прочитать код, написать код, запустить тесты,
-                            поискать по&nbsp;репозиторию или выполнить shell-команду —
-                            он&nbsp;вызывает столько инструментов, сколько нужно,
-                            прежде чем дать финальный ответ.
-                        </p>
-                        <p>
-                            Запускается одной короткой командой
-                            <code class="kbd">lunacode</code>. Никаких отдельных окон,
-                            браузеров или тяжёлых IDE — только ваш терминал
-                            и&nbsp;агентский цикл «модель ↔ инструменты».
-                        </p>
-                        <ul class="modal-stats">
-                            <li><span class="ms-k">Тип</span><span class="ms-v">CLI · AI Coding Agent</span></li>
-                            <li><span class="ms-k">Платформы</span><span class="ms-v">Windows · macOS · Linux</span></li>
-                            <li><span class="ms-k">Язык</span><span class="ms-v">TypeScript / Node.js</span></li>
-                            <li><span class="ms-k">Статус</span><span class="ms-v ok">Active</span></li>
-                        </ul>
-                    </section>
-
-                    <section class="modal-pane" data-pane="features">
-                        <h4 class="modal-h">Что умеет</h4>
-                        <ul class="modal-list">
-                            <li>Красивый UI: figlet ASCII-логотип и&nbsp;многоцветный фиолетовый градиент</li>
-                            <li><strong>6 встроенных инструментов</strong>: <code>bash</code>, <code>read_file</code>, <code>write_file</code>, <code>edit_file</code>, <code>glob</code>, <code>grep</code></li>
-                            <li>Diff-превью при создании и&nbsp;правке файлов — видно, что меняется, до&nbsp;применения</li>
-                            <li>Стриминговые ответы с&nbsp;полноценным Markdown: заголовки, списки, таблицы, фенсы с&nbsp;подсветкой синтаксиса</li>
-                            <li>Живые подсказки слэш-команд — введите <code>/</code> и&nbsp;листайте стрелками</li>
-                            <li>Интерактивные селекторы: <code>/model</code>, <code>/theme</code> и&nbsp;другие</li>
-                            <li><code>Ctrl+O</code> — раскрыть обрезанный вывод инструмента</li>
-                            <li><code>ESC</code> — прервать агента прямо во&nbsp;время генерации</li>
-                            <li><strong>Память проекта</strong>: автоматически читает <code>LUNACODE.md</code> / <code>AGENTS.md</code></li>
-                            <li>История ввода (<code>↑</code>/<code>↓</code>) и&nbsp;сохранение сессий через <code>/save</code> / <code>/load</code></li>
-                            <li>Безопасность: подтверждения для опасных bash-паттернов</li>
-                        </ul>
-                        <h4 class="modal-h">Слэш-команды</h4>
-                        <div class="modal-chips">
-                            <span class="chip">/help</span>
-                            <span class="chip">/model</span>
-                            <span class="chip">/theme</span>
-                            <span class="chip">/think</span>
-                            <span class="chip">/yolo</span>
-                            <span class="chip">/git</span>
-                            <span class="chip">/diff</span>
-                            <span class="chip">/commit</span>
-                            <span class="chip">/test</span>
-                            <span class="chip">/build</span>
-                            <span class="chip">/lint</span>
-                            <span class="chip">/explain</span>
-                            <span class="chip">/refactor</span>
-                            <span class="chip">/review</span>
-                            <span class="chip">/optimize</span>
-                            <span class="chip">/doctor</span>
-                        </div>
-                    </section>
-
-                    <section class="modal-pane" data-pane="tech">
-                        <h4 class="modal-h">Стек</h4>
-                        <ul class="modal-list">
-                            <li><strong>TypeScript</strong> + <strong>Node.js</strong></li>
-                            <li><strong>esbuild</strong> для сборки</li>
-                            <li><strong>marked</strong> + <strong>marked-terminal</strong> + <strong>cli-highlight</strong> — Markdown в&nbsp;терминале</li>
-                            <li><strong>chalk</strong>, <strong>gradient-string</strong>, <strong>figlet</strong> — оформление</li>
-                            <li><strong>commander</strong> / <strong>yargs</strong> — парсинг аргументов</li>
-                            <li><strong>ora</strong> — живые спиннеры</li>
-                            <li><strong>glob</strong>, <strong>minimatch</strong> — поиск файлов</li>
-                        </ul>
-                        <h4 class="modal-h">Конфигурация</h4>
-                        <p>
-                            LunaCode читает переменные окружения
-                            (<code>LUNACODE_API_URL</code>, <code>LUNACODE_API_KEY</code>,
-                            <code>LUNACODE_MODEL</code>, <code>LUNACODE_THEME</code>),
-                            файл <code>~/.lunacode/config.json</code> и&nbsp;встроенные дефолты —
-                            именно в&nbsp;этом порядке.
-                        </p>
-                    </section>
-
-                    <section class="modal-pane" data-pane="install">
-                        <h4 class="modal-h">Windows · в&nbsp;один клик</h4>
-                        <div class="terminal-hint">
-                            <div class="terminal-bar">
-                                <span class="td td-r"></span>
-                                <span class="td td-y"></span>
-                                <span class="td td-g"></span>
-                                <span class="terminal-title">~ powershell</span>
-                            </div>
-                            <div class="terminal-body multi">
-                                <div><span class="prompt">PS&gt;</span> <code>.\setup.ps1</code></div>
-                                <div class="dim"># интерактивная установка</div>
-                                <div><span class="prompt">PS&gt;</span> <code>.\setup.ps1 -Yes</code></div>
-                                <div class="dim"># без подтверждений</div>
-                            </div>
-                        </div>
-
-                        <h4 class="modal-h">macOS / Linux</h4>
-                        <div class="terminal-hint">
-                            <div class="terminal-bar">
-                                <span class="td td-r"></span>
-                                <span class="td td-y"></span>
-                                <span class="td td-g"></span>
-                                <span class="terminal-title">~ bash</span>
-                            </div>
-                            <div class="terminal-body multi">
-                                <div><span class="prompt">$</span> <code>chmod +x setup.sh</code></div>
-                                <div><span class="prompt">$</span> <code>./setup.sh</code></div>
-                            </div>
-                        </div>
-
-                        <h4 class="modal-h">Запуск</h4>
-                        <div class="terminal-hint">
-                            <div class="terminal-bar">
-                                <span class="td td-r"></span>
-                                <span class="td td-y"></span>
-                                <span class="td td-g"></span>
-                                <span class="terminal-title">~ запуск</span>
-                            </div>
-                            <div class="terminal-body">
-                                <span class="prompt">$</span>
-                                <code class="terminal-cmd">lunacode</code>
-                                <span class="caret" aria-hidden="true"></span>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section class="modal-pane" data-pane="links">
-                        <a class="modal-link" href="https://toffeesha.re/c/FRduivJAQH" target="_blank" rel="noopener">
-                            <span class="ml-icon">↗</span>
-                            <span class="ml-text">
-                                <span class="ml-title">Открыть проект</span>
-                                <span class="ml-sub">toffeesha.re/c/FRduivJAQH</span>
-                            </span>
-                        </a>
-                        <a class="modal-link" href="https://t.me/neuroffc" target="_blank" rel="noopener">
-                            <span class="ml-icon">↗</span>
-                            <span class="ml-text">
-                                <span class="ml-title">Связаться с&nbsp;разработчиком</span>
-                                <span class="ml-sub">Telegram · @neuroffc</span>
-                            </span>
-                        </a>
-                    </section>
-                </div>
-
-                <footer class="modal-statusbar">
-                    <span><span class="status-dot online"></span> active</span>
-                    <span class="msb-mid">neudev studio · 2026</span>
-                    <span class="msb-end">esc · close</span>
-                </footer>
-            </div>
-        </div>
-
-        <div class="modal" id="modal-sigma" role="dialog" aria-labelledby="modal-sigma-title" aria-modal="true" hidden>
-            <div class="modal-backdrop" data-modal-close></div>
-            <div class="modal-window glass closed-window" role="document">
-                <header class="modal-titlebar">
-                    <div class="modal-traffic">
-                        <button class="tdot tdot-r" data-modal-close aria-label="Закрыть"></button>
-                        <span class="tdot tdot-y"></span>
-                        <span class="tdot tdot-g" style="opacity:.4"></span>
-                    </div>
-                    <h2 class="modal-title" id="modal-sigma-title">
-                        <span class="modal-crumb">neudev</span>
-                        <span class="modal-sep">/</span>
-                        <span class="modal-crumb">archive</span>
-                        <span class="modal-sep">/</span>
-                        <span class="modal-crumb active">sigmaai.md</span>
-                    </h2>
-                    <button class="modal-close" data-modal-close aria-label="Закрыть">×</button>
-                </header>
-
-                <nav class="modal-tabs" role="tablist">
-                    <button class="modal-tab is-active" data-tab="overview" role="tab">Overview</button>
-                    <button class="modal-tab" data-tab="features" role="tab">Что умел</button>
-                    <button class="modal-tab" data-tab="why" role="tab">Почему закрыт</button>
-                </nav>
-
-                <div class="modal-body">
-                    <section class="modal-pane is-active" data-pane="overview">
-                        <div class="modal-hero">
-                            <img src="assets/images/projects/sigmaai.png" alt="" loading="lazy" />
-                            <div class="modal-hero-fade"></div>
-                            <h3 class="modal-hero-title">Sigma<span class="accent">AI</span> Desktop</h3>
-                        </div>
-                        <p>
-                            <strong>SigmaAI Desktop</strong> — десктопное приложение
-                            для&nbsp;работы с&nbsp;искусственным интеллектом.
-                            Главная задача — сделать общение с&nbsp;ИИ-моделями
-                            удобным, красивым и&nbsp;по-настоящему рабочим
-                            прямо у&nbsp;вас на&nbsp;компьютере.
-                        </p>
-                        <p>
-                            Внутри был аккуратный UX, тёмная тема в&nbsp;тон студии,
-                            продуманные клавиатурные сокращения и&nbsp;всё, чтобы
-                            переписка с&nbsp;умной моделью не&nbsp;ощущалась как очередная
-                            вкладка в&nbsp;браузере.
-                        </p>
-                        <ul class="modal-stats">
-                            <li><span class="ms-k">Тип</span><span class="ms-v">Desktop · AI Client</span></li>
-                            <li><span class="ms-k">Фокус</span><span class="ms-v">UX & UI</span></li>
-                            <li><span class="ms-k">Лимиты</span><span class="ms-v">безлимитные диалоги</span></li>
-                            <li><span class="ms-k">Статус</span><span class="ms-v err">Discontinued</span></li>
-                        </ul>
-                    </section>
-
-                    <section class="modal-pane" data-pane="features">
-                        <h4 class="modal-h">Что умел</h4>
-                        <ul class="modal-list">
-                            <li>
-                                <strong>Безлимитные вопросы</strong> к&nbsp;умной модели ИИ —
-                                без жёстких квот, как у&nbsp;большинства сервисов.
-                            </li>
-                            <li>
-                                <strong>Системные правила (system prompts)</strong> для&nbsp;модели:
-                                задаёшь, как она должна себя вести, и&nbsp;она их&nbsp;помнит
-                                во&nbsp;всех твоих диалогах.
-                            </li>
-                            <li>
-                                <strong>Множество диалогов</strong>: создаёшь новые чаты,
-                                переключаешься между ними, ничего не&nbsp;теряется.
-                            </li>
-                            <li>
-                                <strong>Vibe-coding</strong>: кодишь «по&nbsp;ощущениям»,
-                                опираясь на&nbsp;диалог с&nbsp;ИИ — генерируешь идеи,
-                                быстрые прототипы, объяснения и&nbsp;итерации без бюрократии.
-                            </li>
-                            <li>
-                                История переписок, поиск по&nbsp;ним
-                                и&nbsp;удобное возвращение к&nbsp;старым темам.
-                            </li>
-                            <li>
-                                Аккуратное UI-ядро: типографика, отступы, анимации —
-                                всё как мы&nbsp;любим.
-                            </li>
-                            <li>
-                                Тёмная тема в&nbsp;стиле NeuDev — фиолет, голубой, акцентный розовый.
-                            </li>
-                        </ul>
-                        <h4 class="modal-h">Для&nbsp;кого было</h4>
-                        <p>
-                            Для&nbsp;тех, кто хотел нормальный, предсказуемый ИИ-клиент
-                            на&nbsp;десктопе: разработчики, авторы, исследователи,
-                            люди, которые думают вслух — и&nbsp;не&nbsp;хотят зависеть
-                            от&nbsp;вкладки в&nbsp;браузере.
-                        </p>
-                    </section>
-
-                    <section class="modal-pane" data-pane="why">
-                        <h4 class="modal-h">Почему проект закрыт</h4>
-                        <p>
-                            SigmaAI был экспериментом, и&nbsp;как и&nbsp;любой эксперимент,
-                            он&nbsp;завершился. Часть идей перешла в&nbsp;другие проекты студии,
-                            часть осталась как полезный опыт. На&nbsp;месте SigmaAI
-                            теперь не&nbsp;пустое место — теперь у&nbsp;нас есть
-                            <strong>LunaCode</strong>, который во&nbsp;многом унаследовал
-                            философию SigmaAI, но&nbsp;живёт уже в&nbsp;терминале.
-                        </p>
-                        <p>
-                            Если&nbsp;вы&nbsp;ищете похожий инструмент — посмотрите
-                            <a href="https://toffeesha.re/c/FRduivJAQH" target="_blank" rel="noopener" class="link-accent">LunaCode</a>.
-                        </p>
-                    </section>
-                </div>
-
-                <footer class="modal-statusbar">
-                    <span><span class="status-dot offline"></span> archived</span>
-                    <span class="msb-mid">neudev studio · archive</span>
-                    <span class="msb-end">esc · close</span>
-                </footer>
-            </div>
-        </div>
-
-        </div>
-
-    </main>
-
-    <footer class="footer">
-        <div class="container footer-inner">
-            <div class="footer-brand">
-                <img src="assets/images/logo/logo.svg" alt="" class="logo-mark small" />
-                <span>Neu<span class="accent">Dev</span> &copy; <span id="year">2026</span></span>
-            </div>
-            <nav class="footer-links" aria-label="Соцсети">
-                <a href="https://t.me/neuroffc" target="_blank" rel="noopener">Telegram</a>
-                <span class="footer-sep" aria-hidden="true">·</span>
-                <a href="https://neudevstudio.itch.io" target="_blank" rel="noopener">itch.io</a>
-                <span class="footer-sep" aria-hidden="true">·</span>
-                <a href="https://godotengine.org/" target="_blank" rel="noopener">Godot</a>
-            </nav>
-        </div>
-    </footer>
-
-    <script src="js/main.js" defer></script>
 </body>
 </html>
